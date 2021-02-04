@@ -37,3 +37,21 @@ This course introduces HTML. Taught also how organize semantically and structure
     <li>☑️ Creating projects</li>
     </ol>
  </details>
+ <details>
+     <summary><em>Class 2 - 9 lessons - <strong>Working with Elements</strong></em>
+     </summary>
+<ol>
+	<li>☑️ Semantics </li>
+    <li>☑️ Headings and paragraphs</li>
+    <li>☑️ Lists</li>
+    <li>☑️ Quotations</li>
+	<li>☑️ Abbreviations</li>
+    <li>☑️ Adresses</li>
+    <li>☑️ Description list</li>
+	<li>☑️ Displaying code</li>
+    <li>☑️ General elements</li>   
+    <li>☑️ Reserved keywords</li>   
+    <li>☑️ Document's anatomy</li>   
+    <li>☑️ Generic container elements</li>
+    </ol>
+ </details>
