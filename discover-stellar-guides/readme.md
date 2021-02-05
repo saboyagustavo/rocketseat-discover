@@ -56,7 +56,7 @@ This course introduces HTML. Taught also how organize semantically and structure
     </ol>
  </details>
   <details>
-     <summary><em>Class 2 - 8 lessons - <strong>Links</strong></em>
+     <summary><em>Class 3 - 8 lessons - <strong>Links</strong></em>
      </summary>
 <ol>
 	<li>☑️ Presenting anchor tag</li>
@@ -67,5 +67,30 @@ This course introduces HTML. Taught also how organize semantically and structure
 	<li>☑️ Absolute paths and relative paths</li>
 	<li>☑️ Assessment</li>
 	<li>☑️ Assessment guided solution</li>
+    </ol>
+ </details>
+  <details>
+     <summary><em>Class 4 - 8 lessons - <strong>Tables</strong></em>
+     </summary>
+<ol>
+	<li>☑️ Tables</li>
+	<li>☑️ Basic table</li>
+	<li>☑️ Organizing table</li>
+	<li>☑️ Complex table</li>
+	<li>☑️ Complex THead</li>
+	<li>☑️ Complex TBody</li>
+	<li>☑️ Improving with colgroup</li>
+	<li>☑️ Improving accessibility</li>
+    </ol>
+ </details>
+  <details>
+     <summary><em>Class 5 - 5 lessons - <strong>Document's Head</strong></em>
+     </summary>
+<ol>
+	<li> &lt;head&gt;</li>
+	<li> &lt;meta&gt;</li>
+	<li> Favicon</li>
+	<li> Meta SEO</li>
+	<li> Meta Social</li>
     </ol>
  </details>
