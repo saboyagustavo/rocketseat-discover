@@ -55,3 +55,17 @@ This course introduces HTML. Taught also how organize semantically and structure
     <li>☑️ Generic container elements</li>
     </ol>
  </details>
+  <details>
+     <summary><em>Class 2 - 8 lessons - <strong>Links</strong></em>
+     </summary>
+<ol>
+	<li>☑️ Presenting anchor tag</li>
+	<li>☑️ Using &lt;a&gt;</li>
+	<li>☑️ &lt;a&gt; and its within content</li>
+	<li>☑️ URLs and paths</li>
+	<li>☑️ How to navigate on directories</li>
+	<li>☑️ Absolute paths and relative paths</li>
+	<li>☑️ Assessment</li>
+	<li>☑️ Assessment guided solution</li>
+    </ol>
+ </details>
