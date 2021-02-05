@@ -4,11 +4,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>dev.finance$</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,100;1,200;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header><h1 id="logo">dev.finance$</h1></header>
-        <main>
-            <section>
+        <main class="container">
+            <section id="balance">
                 <h2>Balance</h2>
 
                 <div class="card">
@@ -17,18 +23,19 @@
                 </div>
 
                 <div class="card">
-                    <h3>Outcomes</h3>
+                    <h3>Expenses</h3>
                     <p>$1,500.00</p>
                 </div>
 
-                <div class="card">
+                <div class="card total">
                     <h3>Total</h3>
                     <p>$1,000.00</p>
                 </div>
             </section>
 
-            <section>
-                <table>
+            <section id="transactions">
+                <h2>Transactions</h2>
+                <table id="data-table">
                     <thead>
                         <tr>
                             <th>Description</th>
@@ -38,19 +45,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Website design</td>
-                            <td>$2,500.00</td>
-                            <td>01.23.2021</td>
+                            <td class="description">Website design</td>
+                            <td class="income">$2,500.00</td>
+                            <td class="date">01.23.2021</td>
                         </tr>
                         <tr>
-                            <td>Internet</td>
-                            <td>$200.00</td>
-                            <td>02.01.2021</td>
+                            <td class="description">Internet</td>
+                            <td class="expense">$200.00</td>
+                            <td class="date">02.01.2021</td>
                         </tr>
                         <tr>
-                            <td>Rent</td>
-                            <td>$1,300.00</td>
-                            <td>02.05.2021</td>
+                            <td class="description">Rent</td>
+                            <td class="expense">$1,300.00</td>
+                            <td class="date">02.05.2021</td>
                         </tr>
                     </tbody>
                 </table>
