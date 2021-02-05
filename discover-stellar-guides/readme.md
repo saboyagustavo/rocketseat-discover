@@ -13,9 +13,9 @@ Taught by [Mayk Brito](https://github.com/maykbrito/)
 -   CSS;
 -   JavaScript;
 
-### HTML
+### HTML :heavy_check_mark:
 
--   [ ] _??? hours_
+-   [x] _≅ 2h 10' course_
 
 This course introduces HTML. Taught also how organize semantically and structure a web content by declaring block or inline elements; like paragraphs, lists, heading, link, tables, etc.
 
