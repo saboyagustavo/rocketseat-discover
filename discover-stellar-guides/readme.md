@@ -87,10 +87,10 @@ This course introduces HTML. Taught also how organize semantically and structure
      <summary><em>Class 5 - 5 lessons - <strong>Document's Head</strong></em>
      </summary>
 <ol>
-	<li> &lt;head&gt;</li>
-	<li> &lt;meta&gt;</li>
-	<li> Favicon</li>
-	<li> Meta SEO</li>
-	<li> Meta Social</li>
+	<li>☑️ &lt;head&gt;</li>
+	<li>☑️ &lt;meta&gt;</li>
+	<li>☑️ Favicon</li>
+	<li>☑️ Meta SEO</li>
+	<li>☑️ Meta Social</li>
     </ol>
  </details>
