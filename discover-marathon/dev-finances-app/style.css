@@ -1,5 +1,11 @@
 :root {
     --dark-blue: #363f5f;
+    --dark-green: #2d4a22;
+    --std-bg: #e5e5e5;
+    --red: #e92929;
+    --green: #49aa26;
+    --light-green: #3dd705;
+    --light-blue: #969cb2;
 }
 * {
     margin: 0;
@@ -11,7 +17,7 @@ html {
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e5e5e5;
+    background-color: var(--std-bg);
 }
 .sr-only {
     position: absolute;
@@ -38,13 +44,24 @@ h2 {
 }
 /* --- LINKS && BUTTONS ---------------- */
 a {
-    color: #49aa26;
+    color: var(--green);
     text-decoration: none;
 }
 
 a:hover {
-    color: #3dd705;
-    text-decoration: underline;
+    color: var(--light-green);
+    /* text-decoration: underline; */
+}
+
+.button {
+    width: 100%;
+    border: none;
+    background: var(--green);
+    color: white;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .button.new {
@@ -52,9 +69,44 @@ a:hover {
     margin-bottom: 0.75rem;
 }
 
+.input-group.actions .button {
+    width: 48%;
+    font-size: 1rem;
+}
+
+.button:hover {
+    background-color: var(--light-green);
+}
+
+.button:focus {
+}
+
+.button:active {
+    background-color: var(--light-blue);
+}
+
+.button.cancel {
+    background-color: white;
+    border: 1px solid var(--red);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button.cancel:hover {
+    border: 1px solid white;
+    background-color: var(--red);
+    color: white;
+}
+
+.button.cancel:active {
+    background-color: hsl(0, 81%, 34%);
+}
+
 /* --- HEADER --------------------------- */
 header {
-    background: #2d4a22;
+    background: var(--dark-green);
     padding: 2rem 0 10rem;
     text-align: center;
 }
@@ -94,7 +146,7 @@ header {
 }
 
 .total {
-    background: #49aa26;
+    background: var(--green);
     color: white;
 }
 
@@ -108,7 +160,7 @@ header {
 #data-table {
     width: 100%;
     border-spacing: 0 0.5rem;
-    color: #969cb2;
+    color: var(--light-blue);
     font-weight: normal;
 }
 
@@ -141,10 +193,70 @@ td.description {
     color: var(--dark-blue);
 }
 td.income {
-    color: #49aa26;
+    color: var(--green);
 }
 td.expense {
-    color: #e92929;
+    color: var(--red);
+}
+
+/* --- MODAL --------------------------- */
+.modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal {
+    position: relative;
+    padding: 2.4rem;
+    background: var(--std-bg);
+    border-radius: 0.25rem;
+    max-width: 500px;
+    width: 90%;
+}
+/* --- FORM ----------------------------- */
+#form {
+    max-width: 500px;
+}
+#form h2 {
+    margin-top: 0;
+}
+
+#form form input {
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.8rem;
+    line-height: 1.6rem;
+    width: 100%;
+}
+#form form input:focus {
+    outline: 0.1px solid var(--green);
+}
+
+.input-group {
+    margin: 0.8rem;
+}
+
+.input-group small {
+    opacity: 0.4;
+    color: var(--dark-green);
+}
+
+.input-group.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* --- FOOTER --------------------------- */
