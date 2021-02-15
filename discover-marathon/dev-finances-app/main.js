@@ -1,21 +1,27 @@
 let modal = null,
     transactionButton = null,
     cancelButton = null,
-    transactionsTable = null;
+    transactionsTable = null,
+    incomes = null,
+    expenses = null,
+    balance = null;
 
 window.addEventListener('load', init);
 function init() {
-    mapInputs();
+    mapIO();
     addEvents();
 
     render();
 }
 
-function mapInputs() {
+function mapIO() {
     modal = document.querySelector('#modal');
     transactionButton = document.querySelector('.new');
     cancelButton = document.querySelector('.cancel');
     transactionsTable = document.querySelector('#data-table tbody');
+    incomes = document.getElementById('incomes');
+    expenses = document.getElementById('expenses');
+    balance = document.getElementById('total');
 }
 
 function addEvents() {
@@ -47,14 +53,35 @@ const Utils = {
 };
 
 const activity = {
-    income() {
-        //sum entries;
+    updateBalance(data) {
+        incomes.innerHTML = Utils.formatCurrency(this.countIncomes(data));
+        expenses.innerHTML = Utils.formatCurrency(this.countExpenses(data));
+        balance.innerHTML = Utils.formatCurrency(this.countTotal(data));
     },
-    expenses() {
-        // sum every expense
+
+    countIncomes(transactions) {
+        let incomeAmount = 0;
+        transactions.forEach(transaction => {
+            if (transaction.amount > 0) {
+                incomeAmount += transaction.amount;
+            }
+        });
+        return incomeAmount;
     },
-    total() {
-        //total = income - expense;
+
+    countExpenses(transactions) {
+        let expensesAmount = 0;
+        transactions.forEach(transaction => {
+            if (transaction.amount < 0) {
+                expensesAmount += transaction.amount;
+            }
+        });
+        return expensesAmount;
+    },
+
+    countTotal(data) {
+        const total = this.countIncomes(data) + this.countExpenses(data);
+        return total;
     },
 };
 
@@ -81,6 +108,7 @@ const transactions = [
 
 function render() {
     buildDataTable(transactions);
+    activity.updateBalance(transactions);
 }
 
 function buildDataTable(data) {
@@ -112,3 +140,5 @@ function buildDataTable(data) {
     assembleTransactionTable(data);
     transactions.forEach(transaction => addTransaction(transaction));
 }
+
+function updateBalance() {}
