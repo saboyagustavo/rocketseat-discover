@@ -42,6 +42,8 @@ You can check the planned layout on [this link](https://www.figma.com/file/7Vu9D
 
 This project is under MIT License. If you look for more details, please check the file [LICENSE](LICENSE.md).
 
----
+## :heavy_check_mark: Finished
+
+This app was rebuild by [Gustavo Saboya](https://github.com/saboyagustavo) as a learning experience at Rocketseat Discover Marathon #1. 
 
 Made with ♥ by Rocketseat :wave: [Join our community!](https://discordapp.com/invite/gCRAFhc)
