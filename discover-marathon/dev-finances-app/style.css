@@ -229,21 +229,21 @@ td.expense {
     width: 90%;
 }
 /* --- FORM ----------------------------- */
-#form {
+#formContainer {
     max-width: 500px;
 }
-#form h2 {
+#formContainer h2 {
     margin-top: 0;
 }
 
-#form form input {
+#formContainer form input {
     border: none;
     border-radius: 0.25rem;
     padding: 0.8rem;
     line-height: 1.6rem;
     width: 100%;
 }
-#form form input:focus {
+#formContainer form input:focus {
     outline: 0.1px solid var(--green);
 }
 
