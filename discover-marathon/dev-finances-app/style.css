@@ -52,6 +52,9 @@ a:hover {
     color: var(--light-green);
     /* text-decoration: underline; */
 }
+.clickable {
+    cursor: pointer;
+}
 
 .button {
     width: 100%;

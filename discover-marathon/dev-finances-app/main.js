@@ -33,18 +33,20 @@ function mapIO() {
 }
 
 function addEvents() {
-    transactionButton.addEventListener('click', newTransaction);
-    cancelButton.addEventListener('click', finishEntry);
+    transactionButton.addEventListener('click', Modal.open);
+    cancelButton.addEventListener('click', Modal.close);
     form.addEventListener('submit', Form.handleSubmit);
 }
 
-function newTransaction() {
-    modal.classList.add('active');
-}
+const Modal = {
+    open() {
+        modal.classList.add('active');
+    },
 
-function finishEntry() {
-    modal.classList.remove('active');
-}
+    close() {
+        modal.classList.remove('active');
+    },
+};
 
 const Form = {
     handleSubmit(event) {
@@ -54,6 +56,7 @@ const Form = {
             const data = Form.formatValues();
             activities.add(data);
             Form.clearFields();
+            Modal.close();
         } catch (error) {
             alert(error.message);
         }
@@ -97,7 +100,7 @@ const Utils = {
 
         value = String(value).replace(/\D/g, '');
         value /= 100;
-        value = value.toLocaleString('pt-BR', {
+        value = value.toLocaleString('en-US', {
             style: 'currency',
             currency: 'CAD',
         });
@@ -118,13 +121,10 @@ const Utils = {
 const activities = {
     add(data) {
         transactions.push(data);
-
         render();
-        finishEntry();
     },
     remove(index) {
         transactions.splice(index, 1);
-
         render();
     },
 
@@ -149,7 +149,7 @@ const activities = {
                 expensesAmount += transaction.amount;
             }
         });
-        return expensesAmount;
+        return expensesAmount * -1;
     },
     countTotal(data) {
         const total = this.countIncomes(data) + this.countExpenses(data);
@@ -157,31 +157,22 @@ const activities = {
     },
 };
 
-const transactions = [
-    {
-        id: 1,
-        description: 'Website design',
-        amount: 250057,
-        date: '01.23.2021',
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem('dev.finances:transactions')) || [];
     },
-    {
-        id: 2,
-        description: 'Internet',
-        amount: -20000,
-        date: '02.01.2021',
+
+    set(transactions) {
+        localStorage.setItem('dev.finances:transactions', JSON.stringify(transactions));
     },
-    {
-        id: 3,
-        description: 'Rent',
-        amount: -130000,
-        date: '02.05.2021',
-    },
-];
+};
+
+const transactions = Storage.get();
 
 function buildDataTable(data) {
     transactionsTable.innerHTML = '';
 
-    const assembleTransactionTable = transaction => {
+    const assembleTransactionTable = (transaction, index) => {
         const { description, amount, date } = transaction;
         const formattedAmount = Utils.formatCurrency(amount);
         const cssClass = amount > 0 ? 'income' : 'expense';
@@ -191,7 +182,7 @@ function buildDataTable(data) {
                 <td class="${cssClass}">${formattedAmount}</td>
                 <td class="date">${date}</td>
                 <td>
-                    <img src="./media/assets/minus.svg" alt="Remove transaction" />
+                    <img onclick="activities.remove(${index})" class="clickable" src="./media/assets/minus.svg" alt="Remove transaction" />
                 </td>
             </tr>`;
 
@@ -200,9 +191,9 @@ function buildDataTable(data) {
 
     const addTransaction = (transaction, index) => {
         const tr = document.createElement('tr');
-        tr.innerHTML = assembleTransactionTable(transaction);
+        tr.innerHTML = assembleTransactionTable(transaction, index);
         transactionsTable.appendChild(tr);
-
+        tr.dataset.index = index;
         console.log('\nNEW TRANSACTION ADDED:', transaction);
     };
 
@@ -213,4 +204,5 @@ function buildDataTable(data) {
 function render() {
     buildDataTable(transactions);
     activities.updateBalance(transactions);
+    Storage.set(transactions);
 }
