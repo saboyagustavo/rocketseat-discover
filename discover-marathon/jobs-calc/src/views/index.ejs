@@ -83,14 +83,20 @@
           </div>
           <div class="deadline column">
             <span>Prazo</span>
-            <p><%= job.remaining %> dias para a entrega</p>
+            <p>
+              <% if(job.status === 'progress') { %>
+              <%= job.remaining %> dias para a entrega
+              <% } else { %>
+              Prazo encerrado
+              <%  }; %>
+            </p>
           </div>
           <div class="amount column">
             <span>Valor</span>
             <p><%= job.laborCost %> </p>
           </div>
           <div class="status badge column">
-            <%= job.remaining ? 'Em andamento' : 'Concluído' %>
+            <%= job.status === 'done' ? 'Concluído' : 'Em andamento' %>
           </div>
           <div class="actions column flex">
             <p class="sr-only">Ações</p>
