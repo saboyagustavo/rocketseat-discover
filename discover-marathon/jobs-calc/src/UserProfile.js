@@ -4,7 +4,8 @@ const UserProfile = {
     "monthly-budget": 3300.00,
     "hours-per-day": 6,
     "days-per-week": 5,
-    "vacation-per-year": 44
+    "vacation-per-year": 44,
+    "hourly-rate": 67.43
 };
 
 module.exports = UserProfile;
