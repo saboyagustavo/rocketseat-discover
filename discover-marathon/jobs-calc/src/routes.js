@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = express.Router();
-const user = require('./UserProfile');
+const UserProfile = require('./UserProfile');
 
 const views = __dirname + '/views/';
 
@@ -29,7 +29,7 @@ const Jobs = {
             const updatedJobs = Jobs.data.map((job) => {
                 const remaining = Jobs.services.calcRemainingDays(job);
                 const status = remaining ? "progress" : "done";
-                const laborCost = Jobs.services.formatCurrency(user["hourly-rate"] * job['total-hours']);
+                const laborCost = Jobs.services.formatCurrency(UserProfile.data["hourly-rate"] * job['total-hours']);
 
                 return {
                     ...job,
@@ -39,8 +39,9 @@ const Jobs = {
                 };
             });
 
-            return res.render(`${views}index`, { user, jobs: updatedJobs });
+            return res.render(`${views}index`, { user: UserProfile.data, jobs: updatedJobs });
         },
+
         add: (req, res) => res.render(`${views}job`),
 
         create(req, res) {
@@ -95,6 +96,6 @@ routes.post('/job', Jobs.controllers.create);
 
 routes.get('/job/edit', (req, res) => res.render(`${views}job-edit`));
 
-routes.get('/profile', (req, res) => res.render(`${views}profile`, { user }));
+routes.get('/profile', UserProfile.controllers.profile);
 
 module.exports = routes;
