@@ -40,6 +40,22 @@ const Jobs = {
             });
 
             return res.render(`${views}index`, { user, jobs: updatedJobs });
+        },
+        add: (req, res) => res.render(`${views}job`),
+
+        create(req, res) {
+            const newJob = req.body;
+            const lastId = Jobs.data[Jobs.data.length - 1]?.id || 0;
+
+            Object.assign(Jobs.data, [...Jobs.data, {
+                id: lastId + 1,
+                name: newJob.name,
+                "daily-hours": newJob['daily-hours'],
+                "total-hours": newJob['total-hours'],
+                created_at: Date.now(),
+            }]);
+
+            return res.redirect('/')
         }
     },
 
@@ -58,7 +74,6 @@ const Jobs = {
             const timeDiff = dueDate - Date.now();
             const remainingDays = Math.floor(timeDiff / dayInMs);
 
-
             //-> deadline: how many days left to due date 
             return remainingDays;
         },
@@ -74,22 +89,9 @@ const Jobs = {
 
 routes.get('/', Jobs.controllers.index);
 
-routes.get('/job', (req, res) => res.render(`${views}job`));
+routes.get('/job', Jobs.controllers.add);
 
-routes.post('/job', (req, res) => {
-    const newJob = req.body;
-    const lastId = Jobs[Jobs.length - 1]?.id || 0;
-
-    Object.assign(Jobs, [...Jobs, {
-        id: lastId + 1,
-        name: newJob.name,
-        "daily-hours": newJob['daily-hours'],
-        "total-hours": newJob['total-hours'],
-        created_at: Date.now(),
-    }]);
-
-    return res.redirect('/')
-});
+routes.post('/job', Jobs.controllers.create);
 
 routes.get('/job/edit', (req, res) => res.render(`${views}job-edit`));
 
