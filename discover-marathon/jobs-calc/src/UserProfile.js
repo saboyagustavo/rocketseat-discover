@@ -17,7 +17,6 @@ const UserProfile = {
 
         updateProfile(req, res) {
             const updatedProfile = req.body
-            console.log(req.body);
 
             const yearlyWeeks = 52;
             const yearlyLaborWeeks = yearlyWeeks - updatedProfile['vacation-per-year'];
@@ -31,7 +30,6 @@ const UserProfile = {
                 "hourly-rate": hourlyWage
             });
 
-            console.log(UserProfile.data);
             return res.redirect('/profile')
         }
     }
