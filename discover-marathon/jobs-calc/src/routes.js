@@ -74,7 +74,7 @@ const Job = {
             return res.render(`${views}job-edit`, { job, formatCurrency })
         },
 
-        updateJob(req, res) {
+        update(req, res) {
             const jobId = req.params.id;
             const job = Job.data.find(job => Number(job.id) === Number(jobId));
 
@@ -96,9 +96,20 @@ const Job = {
 
                 return job
             });
-            console.log(Job.data);
 
             return res.redirect(`/job/${jobId}`);
+        },
+
+        delete(req, res) {
+            const jobId = req.params.id;
+            const job = Job.data.find(job => Number(job.id) === Number(jobId));
+
+            if (!job) {
+                return res.status(404).send('Job not found!')
+            }
+
+            Job.data = Job.data.filter(job => Number(job.id) !== Number(jobId));
+            return res.redirect('/');
         }
     },
 
@@ -128,13 +139,13 @@ const Job = {
 routes.get('/', Job.controllers.index);
 
 routes.get('/job', Job.controllers.add);
-
 routes.post('/job', Job.controllers.create);
 
 routes.get('/job/:id', Job.controllers.show);
-routes.post('/job/:id', Job.controllers.updateJob);
+routes.post('/job/:id', Job.controllers.update);
+routes.post('/job/delete/:id', Job.controllers.delete);
 
 routes.get('/profile', UserProfile.controllers.profile);
-routes.post('/profile', UserProfile.controllers.updateProfile);
+routes.post('/profile', UserProfile.controllers.update);
 
 module.exports = routes;

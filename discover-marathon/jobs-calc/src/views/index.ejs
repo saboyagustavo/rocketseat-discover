@@ -75,7 +75,7 @@
       <h1 class="sr-only">Trabalhos</h1>
 
       <div class="cards">
-        <% jobs.forEach((job)=> { %>
+        <% jobs.forEach(job => { %>
         <div class="card <%= job.status %> " data-id="<%= job.id %> ">
           <div class="id column"><%= job.id %></div>
           <div class="name column">
@@ -109,65 +109,6 @@
           </div>
         </div>
         <% }); %>
-
-
-        <!--     template: card progress    
-        <div class="card progress" data-id="1">
-          <div class="id column">1</div>
-            <div class="name column">
-              OneTwo Project
-            </div>
-          <div class="deadline column">
-            <span>Prazo</span>
-            <p>3 dias para a entrega</p>
-          </div>
-          <div class="amount column">
-            <span>Valor</span>
-            <p>R$ 4500,00</p>
-          </div>
-          <div class="status badge column">
-            Em andamento
-          </div>
-          <div class="actions column flex">
-            <p class="sr-only">Ações</p>
-            <a href="/job/edit" class="button white edit" title="Editar Job">
-              <img src="/images/edit-24.svg" alt="Editar Job" />
-            </a>
-            <button class="delete button white" title="Excluir Job">
-              <img src="/images/trash-24.svg" alt="Excluir Job" />
-            </button>
-          </div>
-        </div>
-      -->
-        <!-- end card -->
-        <!--  template: card done
-        <div class="card done" data-id="2">
-          <div class="id column">2</div>
-          <div class="name column">
-            OneTwo Project
-          </div>
-          <div class="deadline column">
-            <span>Prazo</span>
-            <p>3 dias para a entrega</p>
-          </div>
-          <div class="amount column">
-            <span>Valor</span>
-            <p>R$ 4500,00</p>
-          </div>
-          <div class="status badge column">
-            Encerrado
-          </div>
-          <div class="actions column flex">
-            <p class="sr-only">Ações</p>
-            <a href="/job/edit" class="button white edit" title="Editar Job">
-              <img src="/images/edit-24.svg" alt="Editar Job" />
-            </a>
-            <button class="delete button white" title="Excluir Job">
-              <img src="/images/trash-24.svg" alt="Excluir Job" />
-            </button>
-          </div>
-        </div>
-        -->
         <!-- end card -->
       </div>
       <!-- end cards -->
@@ -187,7 +128,7 @@
         <button class="button red" type="submit" form="delete-job">Excluir Job</button>
       </footer>
     </div>
-    <form method="post" action="/job/delete" id="delete-job"></form>
+    <form method="POST" action="/job/delete/<%= jobs.id %>" id="delete-job"></form>
   </div>
   <!-- end modal-wrapper -->
 </body>

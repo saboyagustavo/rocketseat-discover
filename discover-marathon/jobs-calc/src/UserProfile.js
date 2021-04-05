@@ -15,9 +15,22 @@ const UserProfile = {
     controllers: {
         profile: (req, res) => res.render(`${views}profile`, { user: UserProfile.data, formatCurrency }),
 
-        updateProfile(req, res) {
+        update(req, res) {
             const updatedProfile = req.body
 
+
+
+            Object.assign(UserProfile.data, {
+                ...updatedProfile,
+                "hourly-rate": UserProfile.services.calcHourlyWage(updatedProfile)
+            });
+
+            return res.redirect('/profile')
+        }
+    },
+
+    services: {
+        calcHourlyWage(updatedProfile) {
             const yearlyWeeks = 52;
             const yearlyLaborWeeks = yearlyWeeks - updatedProfile['vacation-per-year'];
             const yearlyLaborDays = yearlyLaborWeeks * updatedProfile['days-per-week'];
@@ -25,12 +38,7 @@ const UserProfile = {
             const hourlyWage = updatedProfile['monthly-budget']
                 / (monthlyLaborDays * updatedProfile["hours-per-day"]);
 
-            Object.assign(UserProfile.data, {
-                ...updatedProfile,
-                "hourly-rate": hourlyWage
-            });
-
-            return res.redirect('/profile')
+            return hourlyWage;
         }
     }
 };
