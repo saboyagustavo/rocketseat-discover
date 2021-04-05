@@ -93,7 +93,7 @@
           </div>
           <div class="amount column">
             <span>Valor</span>
-            <p><%= job.laborCost %> </p>
+            <p> <%= formatCurrency(job.laborCost); %> </p>
           </div>
           <div class="status badge column">
             <%= job.status === 'done' ? 'Concluído' : 'Em andamento' %>
