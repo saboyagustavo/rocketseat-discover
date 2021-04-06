@@ -1,4 +1,3 @@
-const views = __dirname + '/views/';
 const { formatCurrency } = require('./Utils');
 const UserProfile = {
     data: {
@@ -13,7 +12,7 @@ const UserProfile = {
     },
 
     controllers: {
-        profile: (req, res) => res.render(`${views}profile`, { user: UserProfile.data, formatCurrency }),
+        profile: (req, res) => res.render(`profile`, { user: UserProfile.data, formatCurrency }),
 
         update(req, res) {
             const updatedProfile = req.body

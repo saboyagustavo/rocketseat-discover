@@ -4,7 +4,6 @@ const routes = express.Router();
 const UserProfile = require('./UserProfile');
 const { formatCurrency } = require('./Utils');
 
-const views = __dirname + '/views/';
 
 const Job = {
     data: [
@@ -41,10 +40,10 @@ const Job = {
                 };
             });
 
-            return res.render(`${views}index`, { user: UserProfile.data, jobs: updatedJob, formatCurrency });
+            return res.render(`index`, { user: UserProfile.data, jobs: updatedJob, formatCurrency });
         },
 
-        add: (req, res) => res.render(`${views}job`),
+        add: (req, res) => res.render(`job`),
 
         create(req, res) {
             const newJob = req.body;
@@ -71,7 +70,7 @@ const Job = {
 
             job.laborCost = Job.services.calcLaborCost(job);
 
-            return res.render(`${views}job-edit`, { job, formatCurrency })
+            return res.render(`job-edit`, { job, formatCurrency })
         },
 
         update(req, res) {
