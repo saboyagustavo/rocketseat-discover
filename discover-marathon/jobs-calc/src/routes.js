@@ -1,149 +1,16 @@
 const express = require('express');
 const ProfileController = require('./controllers/ProfileController');
+const JobController = require('./controllers/JobController');
 const routes = express.Router();
 
-const UserProfile = require('./model/UserProfile');
-const { formatCurrency } = require('./utils/Utils');
+routes.get('/', JobController.index);
 
+routes.get('/job', JobController.add);
+routes.post('/job', JobController.create);
 
-const Job = {
-    data: [
-        {
-            id: 1,
-            name: "Pizzaria Guloso",
-            "daily-hours": 8,
-            "total-hours": 8,
-            created_at: Date.now()
-        },
-        {
-            id: 2,
-            name: "OneTwo Project",
-            "daily-hours": 3,
-            "total-hours": 47,
-            created_at: Date.now() //-> db standard entry
-            // laborCost:
-            // remaining:
-        }
-    ],
-
-    controllers: {
-        index(req, res) {
-            const updatedJob = Job.data.map((job) => {
-                const remaining = Job.services.calcRemainingDays(job);
-                const status = remaining ? "progress" : "done";
-                const laborCost = Job.services.calcLaborCost(job);
-
-                return {
-                    ...job,
-                    remaining,
-                    status,
-                    laborCost,
-                };
-            });
-
-            return res.render(`index`, { user: UserProfile.get(), jobs: updatedJob, formatCurrency });
-        },
-
-        add: (req, res) => res.render(`job`),
-
-        create(req, res) {
-            const newJob = req.body;
-            const lastId = Job.data[Job.data.length - 1]?.id || 0;
-
-            Object.assign(Job.data, [...Job.data, {
-                id: lastId + 1,
-                name: newJob.name,
-                "daily-hours": newJob['daily-hours'],
-                "total-hours": newJob['total-hours'],
-                created_at: Date.now(),
-            }]);
-
-            return res.redirect('/')
-        },
-
-        show(req, res) {
-            const jobId = req.params.id;
-            const job = Job.data.find(job => Number(job.id) === Number(jobId));
-
-            if (!job) {
-                return res.status(404).send('Job not found!')
-            }
-
-            job.laborCost = Job.services.calcLaborCost(job);
-
-            return res.render(`job-edit`, { job, formatCurrency })
-        },
-
-        update(req, res) {
-            const jobId = req.params.id;
-            const job = Job.data.find(job => Number(job.id) === Number(jobId));
-
-            if (!job) {
-                return res.status(404).send('Job not found!')
-            }
-
-            const updatedJob = {
-                ...job,
-                name: req.body['name'],
-                "daily-hours": req.body['daily-hours'],
-                "total-hours": req.body['total-hours']
-            }
-
-            Job.data = Job.data.map(job => {
-                if (Number(job.id) === Number(jobId)) {
-                    job = updatedJob;
-                }
-
-                return job
-            });
-
-            return res.redirect(`/job/${jobId}`);
-        },
-
-        delete(req, res) {
-            const jobId = req.params.id;
-            const job = Job.data.find(job => Number(job.id) === Number(jobId));
-
-            if (!job) {
-                return res.status(404).send('Job not found!')
-            }
-
-            Job.data = Job.data.filter(job => Number(job.id) !== Number(jobId));
-            return res.redirect('/');
-        }
-    },
-
-    services: {
-        calcRemainingDays(job) {
-            const createdDate = new Date(job.created_at);
-            const laborDays = Math.ceil(job['total-hours'] / job['daily-hours']);
-            const dueDay = createdDate.getDate() + laborDays;
-
-            //in milliseconds
-            const dueDate = createdDate.setDate(dueDay);
-
-            //-> 86400000 milliseconds, seconds, minutes, hours
-            const dayInMs = 1000 * 60 * 60 * 24;
-
-            const timeDiff = dueDate - Date.now();
-            const remainingDays = Math.floor(timeDiff / dayInMs);
-
-            //-> deadline: how many days left to due date 
-            return remainingDays;
-        },
-
-        calcLaborCost: (job) => UserProfile.get()["hourly-rate"] * job['total-hours']
-    }
-}
-
-routes.get('/', Job.controllers.index);
-
-routes.get('/job', Job.controllers.add);
-routes.post('/job', Job.controllers.create);
-
-routes.get('/job/:id', Job.controllers.show);
-routes.post('/job/:id', Job.controllers.update);
-routes.post('/job/delete/:id', Job.controllers.delete);
+routes.get('/job/:id', JobController.show);
+routes.post('/job/:id', JobController.update);
+routes.post('/job/delete/:id', JobController.delete);
 
 routes.get('/profile', ProfileController.profile);
 routes.post('/profile', ProfileController.update);
