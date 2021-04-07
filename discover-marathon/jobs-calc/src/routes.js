@@ -1,8 +1,9 @@
 const express = require('express');
+const ProfileController = require('./controllers/ProfileController');
 const routes = express.Router();
 
-const UserProfile = require('./UserProfile');
-const { formatCurrency } = require('./Utils');
+const UserProfile = require('./model/UserProfile');
+const { formatCurrency } = require('./utils/Utils');
 
 
 const Job = {
@@ -40,7 +41,7 @@ const Job = {
                 };
             });
 
-            return res.render(`index`, { user: UserProfile.data, jobs: updatedJob, formatCurrency });
+            return res.render(`index`, { user: UserProfile.get(), jobs: updatedJob, formatCurrency });
         },
 
         add: (req, res) => res.render(`job`),
@@ -131,7 +132,7 @@ const Job = {
             return remainingDays;
         },
 
-        calcLaborCost: (job) => UserProfile.data["hourly-rate"] * job['total-hours']
+        calcLaborCost: (job) => UserProfile.get()["hourly-rate"] * job['total-hours']
     }
 }
 
@@ -144,7 +145,7 @@ routes.get('/job/:id', Job.controllers.show);
 routes.post('/job/:id', Job.controllers.update);
 routes.post('/job/delete/:id', Job.controllers.delete);
 
-routes.get('/profile', UserProfile.controllers.profile);
-routes.post('/profile', UserProfile.controllers.update);
+routes.get('/profile', ProfileController.profile);
+routes.post('/profile', ProfileController.update);
 
 module.exports = routes;
