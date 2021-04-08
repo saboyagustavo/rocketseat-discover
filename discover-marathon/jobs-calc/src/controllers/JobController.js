@@ -5,27 +5,6 @@ const { formatCurrency } = require('../utils/Utils');
 
 
 module.exports = {
-    index(req, res) {
-        const Jobs = Job.get();
-        const profile = UserProfile.get();
-
-
-        const updatedJob = Jobs.map((job) => {
-            const remaining = JobUtils.calcRemainingDays(job);
-            const status = remaining ? "progress" : "done";
-            const laborCost = JobUtils.calcLaborCost(job, profile['hourly-rate']);
-
-            return {
-                ...job,
-                remaining,
-                status,
-                laborCost,
-            };
-        });
-
-        return res.render(`index`, { user: profile, jobs: updatedJob, formatCurrency });
-    },
-
     add: (req, res) => res.render(`job`),
 
     create(req, res) {
