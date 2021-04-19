@@ -7,27 +7,22 @@ const { formatCurrency } = require('../utils/Utils');
 module.exports = {
     add: (req, res) => res.render(`job`),
 
-    create(req, res) {
-        const jobs = Job.get();
-        const lastId = jobs[jobs.length - 1]?.id || 0;
-        console.log(lastId);
-        jobs.push({
-            id: lastId + 1,
+    async create(req, res) {
+        await Job.create({
             name: req.body.name,
             "daily-hours": req.body['daily-hours'],
             "total-hours": req.body['total-hours'],
             created_at: Date.now(),
         });
 
-        Job.update(jobs);
-
         return res.redirect('/')
     },
 
-    show(req, res) {
+    async show(req, res) {
         const jobId = req.params.id;
-        const profile = UserProfile.get();
-        const job = Job.get().find(job => Number(job.id) === Number(jobId));
+        const profile = await UserProfile.get();
+        const jobs = await Job.get();
+        const job = jobs.find(job => Number(job.id) === Number(jobId));
 
         if (!job) {
             return res.status(404).send('Job not found!')
@@ -38,8 +33,8 @@ module.exports = {
         return res.render(`job-edit`, { job, formatCurrency })
     },
 
-    update(req, res) {
-        const jobs = Job.get();
+    async update(req, res) {
+        const jobs = await Job.get();
         const jobId = req.params.id;
         const job = jobs.find(job => Number(job.id) === Number(jobId));
 
@@ -54,29 +49,21 @@ module.exports = {
             "total-hours": req.body['total-hours']
         }
 
-        const newJobs = jobs.map(job => {
-            if (Number(job.id) === Number(jobId)) {
-                job = updatedJob;
-            }
-
-            return job
-        });
-
-        Job.update(newJobs);
+        await Job.update(updatedJob, updatedJob.id);
 
         return res.redirect(`/job/${jobId}`);
     },
 
-    delete(req, res) {
-        const jobs = Job.get();
+    async delete(req, res) {
+        const jobs = await Job.get();
         const jobId = req.params.id;
-        const job = Job.get().find(job => Number(job.id) === Number(jobId));
+        const job = jobs.find(job => Number(job.id) === Number(jobId));
 
         if (!job) {
             return res.status(404).send('Job not found!')
         }
 
-        Job.delete(jobId);
+        await Job.delete(jobId);
         return res.redirect('/');
     }
 };

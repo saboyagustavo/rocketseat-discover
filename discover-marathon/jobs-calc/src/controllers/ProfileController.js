@@ -3,14 +3,15 @@ const UserProfile = require('../model/UserProfile');
 const ProfileUtils = require('../utils/ProfileUtils');
 
 module.exports = {
-    profile: (req, res) => res.render(`profile`, { user: UserProfile.get(), formatCurrency }),
+    profile: async (req, res) => res.render(`profile`, { user: await UserProfile.get(), formatCurrency }),
 
-    update(req, res) {
+    update: async (req, res) => {
         const updatedProfile = req.body
 
+        const profile = await UserProfile.get();
 
-
-        UserProfile.update({
+        await UserProfile.update({
+            ...profile,
             ...updatedProfile,
             "hourly-rate": ProfileUtils.calcHourlyWage(updatedProfile)
         });

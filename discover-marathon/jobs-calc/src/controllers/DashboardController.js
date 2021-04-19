@@ -4,9 +4,10 @@ const JobUtils = require("../utils/JobUtils");
 const { formatCurrency } = require("../utils/Utils");
 
 module.exports = {
-    index(req, res) {
-        const Jobs = Job.get();
-        const profile = UserProfile.get();
+    async index(req, res) {
+        const Jobs = await Job.get();
+        const profile = await UserProfile.get();
+
         let statusCount = {
             projects: Jobs.length,
             progress: 0,
@@ -15,12 +16,13 @@ module.exports = {
         };
 
         let workload = 0;
+
         const updatedJob = Jobs.map((job) => {
             const remaining = JobUtils.calcRemainingDays(job);
-            const status = remaining ? "progress" : "done";
+            const status = remaining <= 0 ? "done" : "progress";
             const laborCost = JobUtils.calcLaborCost(job, profile['hourly-rate']);
 
-            job[status] += 1;
+            statusCount[status] += 1;
 
             workload = status === 'progress' ? workload + job['daily-hours'] : workload
 
