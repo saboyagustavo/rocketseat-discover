@@ -5,17 +5,17 @@ Taught by [Mayk Brito](https://github.com/maykbrito/)
 
 ## Subjects
 
--   Programming fundamentals;
--   How the web works;
--   Git;
--   GitHub; ​​
--   HTML;
--   CSS;
--   JavaScript;
+- Programming fundamentals;
+- How the web works;
+- Git;
+- GitHub; ​​
+- HTML;
+- CSS;
+- JavaScript;
 
 ### HTML :heavy_check_mark:
 
--   [x] _≅ 2h 10' course_
+- [x] _≅ 2h 10' course_
 
 This course introduces HTML. Taught also how organize semantically and structure a web content by declaring block or inline elements; like paragraphs, lists, heading, link, tables, etc.
 
@@ -94,3 +94,70 @@ This course introduces HTML. Taught also how organize semantically and structure
 	<li>☑️ Meta Social</li>
     </ol>
  </details>
+<hr>
+
+### JavaScript
+
+<details>
+    <summary>
+        <em>Class 1 - 2 lessons - <strong>Introduction</strong></em>
+    </summary>
+    <ol>
+	    <li>☑️ Opening</li>
+	    <li>☑️ What is JavaScript</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 1 - 2 lessons - <strong>Introduction</strong></em>
+    </summary>
+    <ol>
+    	<li>☑️ JavaScript Syntax</li>
+	    <li>☑️ How to run JavaScript</li>
+	    <li>☑️ Adding JS files to your front-end project</li>
+	    <li>☑️ Comments in JavaScript</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 3 - 8 lessons - <strong>Data types</strong></em>
+    </summary>
+    <ol>
+    	<li>☑️ Introduction to data types</li>
+    	<li>☑️ String</li>
+    	<li>☑️ Number</li>
+    	<li>☑️ Boolean  </li>
+    	<li>☑️ Undefined vs Null</li>
+    	<li>☑️ Object</li>
+    	<li>☑️ Array</li>
+    	<li>☑️ Conclusion</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 4 - 5 lessons - <strong>Variables</strong></em>
+    </summary>
+    <ol>
+    	<li>☑️ Knowing variables</li>
+    	<li>☑️ Dynamic types</li>
+    	<li>☑️ Scope and var keyword</li>
+    	<li>☑️ Scope, let and const</li>
+    	<li>☑️ Naming variables</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 5 - 6 lessons - <strong>Functions</strong></em>
+    </summary>
+    <ol>
+    	<li>☑️ Functions</li>
+    	<li>☑️ Arguments and parameters</li>
+    	<li>☑️ Obtaining values by return</li>
+    	<li>☑️ Another glaze into functions</li>
+    	<li>☑️ Function scope</li>
+    </ol>
+</details>
