@@ -151,7 +151,21 @@ This course introduces HTML. Taught also how organize semantically and structure
 
 <details>
     <summary>
-        <em>Class 5 - 6 lessons - <strong>Functions</strong></em>
+        <em>Class 5 - 6 lessons - <strong>Practicing and going further</strong></em>
+    </summary>
+    <ol>
+    	<li>☑️ Declaration assignment var</li>
+    	<li>☑️ Grouping declarations</li>
+    	<li>☑️ Concatenation and interpolation</li>
+    	<li>☑️ Objects</li>
+    	<li>☑️ Arrays</li>
+    	<li>☑️ Exercises</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 6 - 9 lessons - <strong>Functions</strong></em>
     </summary>
     <ol>
     	<li>☑️ Functions</li>
@@ -159,5 +173,6 @@ This course introduces HTML. Taught also how organize semantically and structure
     	<li>☑️ Obtaining values by return</li>
     	<li>☑️ Another glaze into functions</li>
     	<li>☑️ Function scope</li>
+    	<li>☑️ Function hoisting</li>
     </ol>
 </details>
