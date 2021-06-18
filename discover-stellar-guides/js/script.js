@@ -1,9 +1,15 @@
-function doSomething(something) {
-  console.log('before callback exection');
+window.addEventListener('load', () => {
+  console.log('Page loaded successfully!');
+  const title = document.getElementById('title');
 
-  something();
+  function writeTimestamp() {
+    const timestamp = new Date();
+    console.log('TIMESTAMP', timestamp
+      .__proto__
+      .constructor
+      .now());
+    return timestamp;
+  }
 
-  console.log('after callback exection');
-}
-
-doSomething(() => console.log('inside the callback execution'));
+  title.innerText = `${writeTimestamp()}`;
+});

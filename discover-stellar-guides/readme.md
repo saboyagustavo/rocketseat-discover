@@ -177,6 +177,15 @@ This course introduces HTML. Taught also how organize semantically and structure
     	<li>☑️ Function hoisting</li>
     	<li>☑️ Arrow function</li>
     	<li>☑️ Callback function</li>
-    	<li>Constructor functions</li>
+    	<li>☑️ Constructor functions</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 7 - 12 lessons - <strong>Manipulating data</strong></em>
+    </summary>
+    <ol>
+    	<li>☑️ Prototype chain</li>
     </ol>
 </details>
