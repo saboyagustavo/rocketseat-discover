@@ -174,5 +174,9 @@ This course introduces HTML. Taught also how organize semantically and structure
     	<li>☑️ Another glaze into functions</li>
     	<li>☑️ Function scope</li>
     	<li>☑️ Function hoisting</li>
+    	<li>☑️ Function hoisting</li>
+    	<li>☑️ Arrow function</li>
+    	<li>☑️ Callback function</li>
+    	<li>Constructor functions</li>
     </ol>
 </details>
