@@ -190,5 +190,9 @@ This course introduces HTML. Taught also how organize semantically and structure
     	<li>☑️ Type coercion vs Type conversion</li>
     	<li>☑️ Numbers into String && vice versa</li>
     	<li>☑️ Counting characters</li>
+    	<li>☑️ Decimal places</li>
+    	<li>☑️ Strings: UPPERCASE && lowercase</li>
+    	<li>☑️ Strings: [spliting, a, string]</li>
+    	<li>☑️ Strings: finding words in its content</li>
     </ol>
 </details>
