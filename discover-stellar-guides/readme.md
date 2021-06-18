@@ -187,5 +187,7 @@ This course introduces HTML. Taught also how organize semantically and structure
     </summary>
     <ol>
     	<li>☑️ Prototype chain</li>
+    	<li>☑️ Type coercion vs Type conversion</li>
+    	<li>☑️ Numbers into String && vice versa</li>
     </ol>
 </details>
