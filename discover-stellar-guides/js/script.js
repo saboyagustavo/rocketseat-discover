@@ -1,22 +1,10 @@
 window.addEventListener('load', () => {
   console.log('Page loaded successfully!');
 
-  let typeCoercionExample = 1 + '1';
-  console.log('EXAMPLE =>', typeCoercionExample, typeof typeCohersionExample); //11 string
+  const str = 'uncopyrightable';
+  console.log('str.length=>', str.length); // -> 15
 
-  typeCoercionExample = 'a' + 1;
-  console.log('EXAMPLE2 =>', typeCoercionExample, typeof typeCohersionExample); //a1 string
-
-  let str = '1';
-  str = Number(str);
-  console.log('EXAMPLE3 =>', str, typeof str); //1 number
-
-  str = 'a';
-  str = Number(str);
-  console.log('EXAMPLE4 =>', str, typeof str); // NaN number
-
-  let num = 1000;
-  num = num.toString();
-  console.log('EXAMPLE5 =>', num, typeof num,
-    '\nLENGTH => ', num.length); // EXAMPLE5 => 1000 string LENGTH => 4
+  const num = 1000;
+  console.log(num.length); // -> undefined
+  console.log('converted num length =>', String(num).length); // -> 4
 });
