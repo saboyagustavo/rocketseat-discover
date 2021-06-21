@@ -194,5 +194,42 @@ This course introduces HTML. Taught also how organize semantically and structure
     	<li>☑️ Strings: UPPERCASE && lowercase</li>
     	<li>☑️ Strings: [spliting, a, string]</li>
     	<li>☑️ Strings: finding words in its content</li>
+    	<li>☑️ Creating an array using constructor</li>
+    	<li>☑️ Elements in an array</li>
+    	<li>☑️ Strings to arrays</li>
+    	<li>☑️ Manipulating arrays</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 8 - 14 lessons - <strong>Expressions && operators</strong></em>
+    </summary>
+    <ol>
+        <li>☑️ Expressions and operators</li>
+        <li>☑️ New</li>
+        <li>☑️ typeof and delete</li>
+        <li>☑️ Arithmetics</li>
+        <li>☑️ Grouping operator</li>
+        <li>☑️ Comparison operators</li>
+        <li>☑️ Equality and strict equality operators</li>
+        <li>☑️ Assignment operators</li>
+        <li>☑️ Logical operators</li>
+        <li>☑️ Conditional ternary operator</li>
+        <li>☑️ String operators</li>
+        <li>☑️ Falsy and truthy values</li>
+        <li>☑️ Operators precedence</li>
+    </ol>
+</details>
+
+<details>
+    <summary>
+        <em>Class 9 - 4 lessons<strong>Flow control and conditional statements</strong></em>
+    </summary>
+    <ol>
+        <li>☑️ Application control flow</li>
+        <li>☑️ if, else, else if</li>
+        <li>☑️ switch</li>
+        <li>☑️ throw and try/catch</li>
     </ol>
 </details>

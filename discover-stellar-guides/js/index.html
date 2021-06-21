@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Rubik+Mono+One&display=swap" rel="stylesheet">
   <title>My JS Studies</title>
 </head>
 
 <body>
-  <h1 id="title">any title</h1>
-
+  <div class="container">
+    <figure>
+      <img src="./thermometer.png" alt="A digital thermometer">
+    </figure>
+    <header>
+      <h1 id="title" class="highlight-text">Virtual <br />thermometer</h1>
+    </header>
+    <main>
+      <section>
+        <label id="temperatureLabel" for="temperature">
+          Enter temperature
+        </label>
+        <input class="highlight-text" type="number" id="temperatureInput" min="32" max="45" step="0.1"
+          name="temperature">
+      </section>
+    </main>
+  </div>
   <script src="script.js"></script>
 </body>
 
