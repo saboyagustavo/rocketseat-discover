@@ -1,0 +1,95 @@
+{
+  "reports": {
+    "grade": 9,
+    "days": 190,
+    "teacher": {
+      "first_name": "Elizabeth",
+      "last_name": "Robinson",
+      "gender": "F",
+      "dob": "1939-02-11"
+    },
+    "students": [
+      {
+        "id": 1,
+        "first_name": "Gustavo",
+        "last_name": "Saboya",
+        "gender": "M",
+        "dob": "1951-08-19",
+        "attended": 167,
+        "tardy": 13,
+        "score": [
+          {
+            "subject": "English Language Arts",
+            "q1": 78,
+            "q2": 80,
+            "q3": 67,
+            "q4": 89
+          },
+          {
+            "subject": "Health and Life Skills",
+            "q1": 69,
+            "q2": 92,
+            "q3": 85,
+            "q4": 93
+          },
+          {
+            "subject": "Mathematics",
+            "q1": 97,
+            "q2": 72,
+            "q3": 84,
+            "q4": 91
+          },
+          {
+            "subject": "Physical Education",
+            "q1": 72,
+            "q2": 61,
+            "q3": 82,
+            "q4": 71
+          },
+          {
+            "subject": "Science",
+            "q1": 76,
+            "q2": 94,
+            "q3": 68,
+            "q4": 61
+          },
+          {
+            "subject": "Social Studies",
+            "q1": 60,
+            "q2": 80,
+            "q3": 68,
+            "q4": 73
+          },
+          {
+            "subject": "Art",
+            "q1": 93,
+            "q2": 80,
+            "q3": 67,
+            "q4": 91
+          },
+          {
+            "subject": "Career and Technology Foundations",
+            "q1": 84,
+            "q2": 80,
+            "q3": 92,
+            "q4": 89
+          },
+          {
+            "subject": "Environment and Outdoor Education",
+            "q1": 86,
+            "q2": 98,
+            "q3": 87,
+            "q4": 95
+          },
+          {
+            "subject": "Music",
+            "q1": 100,
+            "q2": 92,
+            "q3": 97,
+            "q4": 88
+          }
+        ]
+      }
+    ]
+  }
+}

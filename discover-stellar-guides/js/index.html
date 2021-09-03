@@ -21,21 +21,21 @@
       <section>
         <div class="section-container">
           <div class="description-container">
-            <p id="student">
-              Student:
-              <span class="description-label" id="studentValue">Benjamin Braddock</span>
-            </p>
-            <p id="grade">
-              Grade:
-              <span class="description-label" id="grade-value">7th Grade</span>
-            </p>
-            <p id="teacher">
+            <p>
               Teacher:
-              <span class="description-label" id="teacher-value">Mrs. Robinson</span>
+              <span class="description-label" id="teacher"></span>
+            </p>
+            <p>
+              Grade:
+              <span class="description-label" id="grade"></span>
+            </p>
+            <p>
+              Student:
+              <span class="description-label" id="student"></span>
             </p>
             <p>
               Attendance:
-              <span class="description-label" id="attendance-value">98%</span>
+              <span class="description-label" id="attendance"></span>
             </p>
           </div>
         </div>
@@ -47,7 +47,7 @@
           <span>Grade</span>
         </h2>
         <div class="section-container">
-          <div class="grades-grid">
+          <div class="grades-grid" id="grades">
             <p class="flex-row">
               Arts
               <span class="description-label">A</span>
@@ -64,58 +64,53 @@
             incididunt ut labore et dolore magna
             aliqua.
           </p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </p>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur
-            sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
         </div>
       </article>
 
       <section>
         <h4 class="highlight-text">Grading Scale</h4>
         <div class="section-container">
-
-          <div class="grading-container">
+          <div class="grading-grid">
             <div class="grade-description">
               <span id="grade-value">
                 A
               </span>
-              <span id="grade-conversion">
+              <span class="description-label">
                 100 - 90
               </span>
             </div>
-            <div>
-              <span>
+            <div class="grade-description">
+              <span id="grade-value">
                 B
               </span>
-              <span>
-                90 - 80
+              <span class="description-label">
+                89 - 80
               </span>
             </div>
-            <div>
-              <span>
+            <div class="grade-description">
+              <span id="grade-value">
                 C
               </span>
-              <span>
-                80 -70
+              <span class="description-label">
+                79 - 70
               </span>
             </div>
-            <div>
-              <span>
+            <div class="grade-description">
+              <span id="grade-value">
                 D
               </span>
-              <span>
-                70 - 60
+              <span class="description-label">
+                69 - 60
               </span>
             </div>
-          </div>
-        </div>
+            <div class="grade-description">
+              <span id="grade-value">
+                F
+              </span>
+              <span class="description-label">
+                below 60
+              </span>
+            </div>
       </section>
 
     </main>

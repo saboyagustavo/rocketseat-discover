@@ -100,6 +100,14 @@ body {
   row-gap: 2rem;
 }
 
+.grading-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  row-gap: 2rem;
+}
 .feedback {
   flex-flow: column wrap;
   gap: 1rem;
