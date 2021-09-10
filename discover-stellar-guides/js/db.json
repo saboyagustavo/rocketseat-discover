@@ -17,7 +17,7 @@
         "dob": "1951-08-19",
         "attended": 167,
         "tardy": 13,
-        "score": [
+        "scores": [
           {
             "subject": "English Language Arts",
             "q1": 78,

@@ -12,6 +12,7 @@ async function init() {
 
   if (data) {
     DOM.renderReportInfo(data);
+    DOM.renderSubjectsAndGrades(data);
   }
 }
 
@@ -54,6 +55,40 @@ const DOM = {
     attendanceOutput.innerText = `${attendance.toFixed(2)}%`;
   },
 
+  renderSubjectsAndGrades(data) {
+    const student = data.students.find(student => (student.id === 1));
+    const gradesGrid = document.getElementById('grades')
+
+    student.scores.forEach(score => {
+      const subjectOutput = document.createElement('p');
+      subjectOutput.classList.add('flex-row')
+
+      const finalGradeOutput = document.createElement('span');
+      finalGradeOutput.classList.add('description-label')
+
+      const averageScore = (score.q1 + score.q2 + score.q3 + score.q4) / 4
+
+      let finalGrade = '';
+
+      if (averageScore > 90) {
+        finalGrade = 'A';
+      } else if (averageScore >= 80) {
+        finalGrade = 'B';
+      } else if (averageScore >= 70) {
+        finalGrade = 'C';
+      } else if (averageScore >= 60) {
+        finalGrade = 'D';
+      } else {
+        finalGrade = 'F';
+      }
+
+      console.log(score.subject, averageScore, finalGrade);
+      subjectOutput.innerText = score.subject;
+      finalGradeOutput.innerText = finalGrade;
+      gradesGrid.appendChild(subjectOutput);
+      subjectOutput.appendChild(finalGradeOutput);
+    });
+  },
 };
 
 const API = {
